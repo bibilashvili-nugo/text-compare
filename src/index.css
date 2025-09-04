@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-small: 320px;
+  --color-secondary: #132450;
+}
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url("/fonts/Helvetica-Bold.ttf") format("truetype");
+  font-weight: 700; /* bold weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("/fonts/Helvetica.ttf") format("truetype");
+  font-weight: 400; /* regular weight */
+  font-style: normal;
+}
+
+.font-helvetica {
+  font-family: "Helvetica", sans-serif;
+}
+
+.font-helvetica-bold {
+  font-family: "HelveticaBold", sans-serif;
+  font-weight: 700;
+}

@@ -3,11 +3,12 @@ import BurgerMenu from "/images/burgerMenu.png";
 import ChevronsLeft from "/images/chevrons-left.png";
 import { headerData } from "../constants";
 import { SpanTextMenu } from "../ui/text";
+import Compare from "./Compare";
 
 const Header = () => {
   return (
     <>
-      <div className=" lg:hidden">
+      <div className="lg:hidden">
         <div className=" small:flex justify-between items-center py-3 small:px-5 md:px-[30px] bg-secondary">
           <img
             src={Logo}
@@ -47,6 +48,7 @@ const Header = () => {
           </div>
           <hr className="border border-[#EDEDED]" />
         </div>
+        <Compare />
       </div>
 
       <div className="lg:grid grid-cols-[240px_calc(100%-240px)] small:hidden h-screen">
@@ -150,7 +152,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="">right side</div>
+        <Compare />
       </div>
     </>
   );

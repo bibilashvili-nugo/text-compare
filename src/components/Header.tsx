@@ -3,7 +3,7 @@ import BurgerMenu from "/images/burgerMenu.png";
 import ChevronsLeft from "/images/chevrons-left.png";
 import { headerData } from "../constants";
 import { SpanTextMenu } from "../ui/text";
-import Compare from "./Compare";
+import Compare from "./CompareMenu";
 
 const Header = () => {
   return (

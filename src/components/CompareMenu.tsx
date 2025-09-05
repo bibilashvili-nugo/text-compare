@@ -1,6 +1,6 @@
 const Compare = () => {
   return (
-    <div className="flex flex-col gap-[17px] small:px-4 lg:px-6 pt-6">
+    <div className="flex flex-col gap-[17px] lg:px-6 pt-6">
       <div className="  flex small:flex-col small:gap-4 md:flex-row">
         <div className="small:flex small:flex-col small:gap-4 md:w-1/2 md:flex-row">
           <div className="flex justify-between small:pr-[6px] small:pl-[14px] border-[1px] border-[#E0E0E0] small:py-[9px] small:rounded-[8px]">

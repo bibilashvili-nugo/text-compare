@@ -4,6 +4,7 @@ import ChevronsLeft from "/images/chevrons-left.png";
 import { headerData } from "../constants";
 import { SpanTextMenu } from "../ui/text";
 import Compare from "./CompareMenu";
+import TextInput from "./TextInput";
 
 const Header = () => {
   return (
@@ -48,7 +49,10 @@ const Header = () => {
           </div>
           <hr className="border border-[#EDEDED]" />
         </div>
-        <Compare />
+        <div className="small:px-4 lg:px-6">
+          <Compare />
+          <TextInput />
+        </div>
       </div>
 
       <div className="lg:grid grid-cols-[240px_calc(100%-240px)] small:hidden h-screen">
@@ -152,7 +156,10 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <Compare />
+        <div>
+          <Compare />
+          <TextInput />
+        </div>
       </div>
     </>
   );

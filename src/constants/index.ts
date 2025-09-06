@@ -1,23 +1,40 @@
-const headerData = [
-  { text: "მართლმწერი", icon: "/icons/check.png" },
+import type { FC } from "react";
+import {
+  ArrowRight,
+  Check,
+  Mic,
+  Pdf,
+  SpellingCheck,
+  TextVoice,
+} from "../components/Icons";
+
+interface HeaderItem {
+  text: string;
+  icon: string | FC<{ color?: string }>;
+  active?: boolean;
+  middleIcon?: FC<{ color?: string }>; // 👈 optional React component
+}
+
+const headerData: HeaderItem[] = [
+  { text: "მართლმწერი", icon: Check },
   {
     text: "ტექსტის შედარება",
-    icon: "/icons/SpellingCheckText.png",
+    icon: SpellingCheck,
     active: true,
   },
   {
     text: "ხმა ტექსტი",
-    middleIcon: "/icons/arrow-right.png",
-    icon: "/icons/mic.png",
+    middleIcon: ArrowRight,
+    icon: Mic,
   },
   {
     text: "ტექსტი ხმა",
-    middleIcon: "/icons/arrow-right.png",
-    icon: "/icons/textVoice.png",
+    middleIcon: ArrowRight,
+    icon: TextVoice,
   },
   {
     text: "PDF კონვერტაცია",
-    icon: "/icons/pdf.png",
+    icon: Pdf,
   },
 ];
 

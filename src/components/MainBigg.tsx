@@ -34,9 +34,10 @@ const MainBigg = () => {
         <div className="flex flex-col justify-between h-full">
           <div className="flex flex-col pl-[12.8px] ">
             {headerData?.map((item, index) => {
-              const hasMidleIcon = item?.middleIcon;
               const isHovered = hoverIndex === index;
               const isActive = index === 1 && hoverIndex === null;
+              const MiddleIcon = item?.middleIcon;
+              const Icon = item?.icon;
 
               return (
                 <div
@@ -48,18 +49,21 @@ const MainBigg = () => {
                   onMouseLeave={() => setHoverIndex(null)}
                 >
                   <Hover hoverIndex={hoverIndex} index={index} />
-                  <img
+                  <Icon color={isActive || isHovered ? "#132450" : "white"} />
+                  {/* <img
                     src={item?.icon}
                     alt={item?.text}
                     width={24}
                     height={24}
-                  />
-                  {hasMidleIcon ? (
+                  /> */}
+                  {MiddleIcon ? (
                     <div className="flex gap-1 items-center">
                       <SpanTextMenu active={isActive || isHovered}>
                         {item?.text.split(" ")[0]}
                       </SpanTextMenu>
-                      <img src={item.middleIcon} width={16} height={16} />
+                      <MiddleIcon
+                        color={isActive || isHovered ? "#132450" : "white"}
+                      />
                       <SpanTextMenu active={isActive || isHovered}>
                         {item?.text.split(" ")[1]}
                       </SpanTextMenu>

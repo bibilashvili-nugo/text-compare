@@ -1,5 +1,6 @@
 interface IconProps {
   color?: string;
+  size?: string;
 }
 
 export const ArrowRight: React.FC<IconProps> = ({ color = "white" }) => {
@@ -29,12 +30,15 @@ export const ArrowRight: React.FC<IconProps> = ({ color = "white" }) => {
   );
 };
 
-export const Check: React.FC<IconProps> = ({ color = "white" }) => {
+export const Check: React.FC<IconProps> = ({
+  color = "white",
+  size = "24",
+}) => {
   return (
     <div>
       <svg
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -2,8 +2,11 @@ import Compare from "./CompareMenu";
 import TextInput from "./TextInput";
 import Logo from "/images/logo.png";
 import BurgerMenu from "/images/burgerMenu.png";
+import { SpellingCheck } from "./Icons";
+import { useResponsiveSize } from "../hooks/ResponsiveSpellingCheck";
 
 const MainSmall = () => {
+  const size = useResponsiveSize();
   return (
     <>
       <div className=" small:flex justify-between items-center py-3 small:px-5 md:px-[30px] bg-secondary">
@@ -26,13 +29,15 @@ const MainSmall = () => {
 
       <div>
         <div className="flex items-center gap-1 small:py-4 small:pl-4 md:py-6 md:pl-[30px] cursor-pointer">
-          <img
+          {/* <img
             src="/icons/SpellingCheckText.png"
             alt="spelling check"
             width={16}
             height={16}
             className="small:w-4 small:h-4 md:w-6 md:h-6"
-          />
+          /> */}
+
+          <SpellingCheck size={size} />
           <span className="smaller:text-xs md:text-base leading-5 font-helvetica-bold">
             ტექსტის შედარება
           </span>

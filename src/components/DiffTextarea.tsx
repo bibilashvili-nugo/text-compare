@@ -1,9 +1,5 @@
 import React from "react";
-
-interface DiffRange {
-  start: number;
-  end: number;
-}
+import { diffChars } from "diff";
 
 interface Props {
   text: string;
@@ -18,33 +14,39 @@ const DiffTextarea: React.FC<Props> = ({
   compareText,
   isCompared,
 }) => {
-  const calculateDiffIndices = (base: string, compare: string): DiffRange[] => {
-    const diffs: DiffRange[] = [];
-    const length = Math.max(base.length, compare.length);
-    for (let i = 0; i < length; i++) {
-      if (base[i] !== compare[i]) {
-        diffs.push({ start: i, end: i + 1 });
-      }
-    }
-    return diffs;
-  };
-
   const getHighlightedHTML = (text: string, compare: string): string => {
     if (!isCompared) return text;
-    const diffs = calculateDiffIndices(text, compare);
+
+    // Split texts into words (including spaces)
+    const wordRegex = /\S+|\s+/g;
+    const textWords = text.match(wordRegex) || [];
+    const compareWords = compare.match(wordRegex) || [];
+
+    const maxLength = Math.max(textWords.length, compareWords.length);
     let result = "";
-    let lastIndex = 0;
 
-    diffs.forEach(({ start, end }) => {
-      result += text.slice(lastIndex, start);
-      result += `<mark style="background-color: #21a40050">${text.slice(
-        start,
-        end
-      )}</mark>`;
-      lastIndex = end;
-    });
+    for (let i = 0; i < maxLength; i++) {
+      const tWord = textWords[i] || "";
+      const cWord = compareWords[i] || "";
 
-    result += text.slice(lastIndex);
+      if (tWord === cWord) {
+        result += tWord; // identical word, no highlight
+      } else {
+        // Highlight differences per character inside this word
+        const diffs = diffChars(cWord, tWord);
+        diffs.forEach((part) => {
+          if (part.added) {
+            for (const char of part.value) {
+              result += `<mark style="background-color: #21a40050">${char}</mark>`;
+            }
+          } else if (!part.removed) {
+            result += part.value;
+          }
+          // removed characters are ignored
+        });
+      }
+    }
+
     return result;
   };
 

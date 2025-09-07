@@ -50,12 +50,6 @@ const MainBigg = () => {
                 >
                   <Hover hoverIndex={hoverIndex} index={index} />
                   <Icon color={isActive || isHovered ? "#132450" : "white"} />
-                  {/* <img
-                    src={item?.icon}
-                    alt={item?.text}
-                    width={24}
-                    height={24}
-                  /> */}
                   {MiddleIcon ? (
                     <div className="flex gap-1 items-center">
                       <SpanTextMenu active={isActive || isHovered}>

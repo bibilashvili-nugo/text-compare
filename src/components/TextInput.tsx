@@ -12,6 +12,8 @@ const TextInput = () => {
     setText2(text1);
   };
 
+  const isCompareDisabled = !text1.length || !text2.length;
+
   return (
     <div className="pt-6 flex flex-col items-center font-helvetica lg:px-6">
       <div className="flex flex-col lg:flex-row small:gap-4 md:gap-[10px] w-full pb-8 items-center">
@@ -43,7 +45,12 @@ const TextInput = () => {
       </div>
       <button
         onClick={() => setIsCompared(true)}
-        className="bg-[#383A4899]/60 font-helvetica text-white py-[10px] px-[37px] rounded text-sm leading-[28px] cursor-pointer"
+        className={` font-helvetica text-white py-[10px] px-[37px] rounded text-sm leading-[28px] ${
+          isCompareDisabled
+            ? "cursor-not-allowed bg-[#383A4899]/60"
+            : "cursor-pointer bg-[#4571E4]"
+        }`}
+        disabled={isCompareDisabled}
       >
         შედარება
       </button>

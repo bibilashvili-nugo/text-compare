@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { DoubleArrow } from "../ui/Icons";
 import DiffTextarea from "./DiffTextarea";
+import SpinWithText from "./SpinWithText";
 
 const TextInput = () => {
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
   const [isCompared, setIsCompared] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const swapTexts = () => {
     setText1(text2);
@@ -14,7 +16,17 @@ const TextInput = () => {
 
   const isCompareDisabled = !text1.length || !text2.length;
 
-  return (
+  const handleCompare = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsCompared(true);
+    }, 3000);
+  };
+
+  return isLoading ? (
+    <SpinWithText />
+  ) : (
     <div className="pt-6 flex flex-col items-center font-helvetica lg:px-6">
       <div className="flex flex-col lg:flex-row small:gap-4 md:gap-[10px] w-full pb-8 items-center">
         <div className="w-full relative">
@@ -44,7 +56,7 @@ const TextInput = () => {
         </div>
       </div>
       <button
-        onClick={() => setIsCompared(true)}
+        onClick={handleCompare}
         className={` font-helvetica text-white py-[10px] px-[37px] rounded text-sm leading-[28px] ${
           isCompareDisabled
             ? "cursor-not-allowed bg-[#383A4899]/60"

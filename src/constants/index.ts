@@ -6,7 +6,7 @@ import {
   Pdf,
   SpellingCheck,
   TextVoice,
-} from "../components/Icons";
+} from "../ui/Icons";
 
 interface HeaderItem {
   text: string;

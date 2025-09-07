@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { DoubleArrow } from "../ui/Icons";
 
 const TextInput = () => {
-  const [text1, setText1] = useState("");
-  const [text2, setText2] = useState("");
-  const [isCompared, setIsCompared] = useState(false);
+  const [text1, setText1] = useState<string>("");
+  const [text2, setText2] = useState<string>("");
+  const [isCompared, setIsCompared] = useState<boolean>(false);
 
-  const calculateDiffIndices = (base: string, compare: string) => {
+  const calculateDiffIndices = (
+    base: string,
+    compare: string
+  ): { start: number; end: number }[] => {
     const diffs: { start: number; end: number }[] = [];
     const length = Math.max(base.length, compare.length);
     for (let i = 0; i < length; i++) {
@@ -16,7 +20,7 @@ const TextInput = () => {
     return diffs;
   };
 
-  const getHighlightedHTML = (text: string, compare: string) => {
+  const getHighlightedHTML = (text: string, compare: string): string => {
     if (!isCompared) return text;
     const diffs = calculateDiffIndices(text, compare);
     let result = "";
@@ -40,7 +44,7 @@ const TextInput = () => {
     setText: (val: string) => void,
     compareText: string
   ) => (
-    <div className="relative w-full">
+    <div className="relative w-full h-[190px] md:h-[432px]">
       {/* Highlight overlay */}
       <div
         className="absolute top-0 left-0 w-full h-full p-3 whitespace-pre-wrap break-words pointer-events-none"
@@ -58,23 +62,29 @@ const TextInput = () => {
 
       {/* Transparent textarea */}
       <textarea
+        name="text input"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className="w-full h-[190px] md:h-[432px] p-3 rounded-lg bg-transparent resize-none focus:outline-none font-helvetica text-sm leading-[22px]"
+        className="absolute top-0 left-0 w-full h-full p-3 rounded-lg bg-transparent resize-none focus:outline-none font-helvetica text-sm leading-[22px] z-10 text-transparent caret-black"
         placeholder="Type here..."
       />
     </div>
   );
 
   return (
-    <div className="space-y-4">
-      {renderTextareaWithHighlight(text1, setText1, text2)}
-      {renderTextareaWithHighlight(text2, setText2, text1)}
+    <div className="pt-6 flex flex-col items-center font-helvetica lg:px-6">
+      <div className="flex flex-col lg:flex-row small:gap-4 md:gap-[10px] w-full pb-8 items-center">
+        {renderTextareaWithHighlight(text1, setText1, text2)}
+        <div className="small:rotate-90 lg:rotate-180">
+          <DoubleArrow />
+        </div>
+        {renderTextareaWithHighlight(text2, setText2, text1)}
+      </div>
       <button
         onClick={() => setIsCompared(true)}
-        className="bg-blue-600 text-white p-2 rounded"
+        className="bg-[#383A4899]/60 font-helvetica text-white py-[10px] px-[37px] rounded text-sm leading-[28px]"
       >
-        Compare
+        შედარება
       </button>
     </div>
   );

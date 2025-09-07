@@ -2,7 +2,7 @@ import Compare from "./CompareMenu";
 import TextInput from "./TextInput";
 import Logo from "/images/logo.png";
 import BurgerMenu from "/images/burgerMenu.png";
-import { SpellingCheck } from "./Icons";
+import { SpellingCheck } from "../ui/Icons";
 import { useResponsiveSize } from "../hooks/ResponsiveSpellingCheck";
 
 const MainSmall = () => {

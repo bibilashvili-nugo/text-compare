@@ -29,14 +29,14 @@ const Hover = ({ hoverIndex, index }: Props) => {
       {getVisualIndex(0) === index && (
         <>
           <div className="absolute w-3 h-3 z-10 bg-white right-0 bottom-0"></div>
-          <div className="absolute w-3 h-3 z-10 bg-secondary rounded-br-[20px] right-0 bottom-0"></div>
+          <div className="absolute w-3 h-3 z-10 bg-[#132450] rounded-br-[20px] right-0 bottom-0"></div>
         </>
       )}
 
       {getVisualIndex(2) === index && (
         <>
           <div className="absolute w-3 h-3 z-10 bg-white right-0 top-0"></div>
-          <div className="absolute w-3 h-3 z-10 bg-secondary rounded-tr-[20px] right-0 top-0"></div>
+          <div className="absolute w-3 h-3 z-10 bg-[#132450] rounded-tr-[20px] right-0 top-0"></div>
         </>
       )}
     </>

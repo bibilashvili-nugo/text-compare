@@ -10,7 +10,7 @@ const SpanTextMenu: React.FC<MenuText> = ({ children, active }) => {
     <span
       className={`text-sm leading-5 font-helvetica ${
         active
-          ? "text-secondary font-helvetica-bold"
+          ? "text-[#132450] font-helvetica-bold"
           : "text-white font-helvetica"
       }`}
     >

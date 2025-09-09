@@ -3,8 +3,8 @@ import Spinner from "../ui/Spinner";
 
 const SpinWithText = () => {
   const [progress, setProgress] = useState(0);
-  const duration = 3000;
-  const intervalTime = 50;
+  const duration = 1000;
+  const intervalTime = 30;
 
   useEffect(() => {
     const increment = 100 / (duration / intervalTime);

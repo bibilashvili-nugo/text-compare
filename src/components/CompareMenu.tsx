@@ -1,4 +1,5 @@
 import LanguageChange from "./LanguageChange";
+import CheckButton from "./CheckButton";
 
 const Compare = () => {
   return (
@@ -7,18 +8,7 @@ const Compare = () => {
         <div className="small:flex small:flex-col small:gap-4 md:w-1/2 md:flex-row">
           <LanguageChange />
 
-          <div className="flex items-center gap-2">
-            <label className="flex items-center gap-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                checked={false}
-                className="w-5 h-5 cursor-pointer rounded-[4px] border border-[#E0E0E0]"
-              />
-            </label>
-            <span className="leading-[22px] tracking-[1%] font-helvetica text-sm">
-              ფორმატის შენარჩუნება
-            </span>
-          </div>
+          <CheckButton />
         </div>
 
         <div className="hidden md:block md:w-1/4"></div>

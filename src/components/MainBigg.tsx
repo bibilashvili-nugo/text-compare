@@ -12,7 +12,7 @@ const MainBigg = () => {
 
   return (
     <>
-      <div className="bg-secondary h-screen flex flex-col">
+      <div className="bg-[#132450] h-screen flex flex-col">
         <div className="flex justify-end w-full pt-3 pr-[27px] ">
           <img
             src={ChevronsLeft}

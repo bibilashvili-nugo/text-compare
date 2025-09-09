@@ -53,7 +53,6 @@ const MainSmall = () => {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Background overlay */}
             <motion.div
               className="fixed inset-0 bg-black/40 z-40"
               onClick={() => setIsOpen(false)}
@@ -62,7 +61,6 @@ const MainSmall = () => {
               exit={{ opacity: 0 }}
             />
 
-            {/* Drawer */}
             <motion.div
               className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-lg z-50 p-4"
               initial={{ y: "100%" }}

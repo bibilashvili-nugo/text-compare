@@ -2,10 +2,10 @@ import { useState } from "react";
 import { DoubleArrow } from "../ui/Icons";
 import DiffTextarea from "./DiffTextarea";
 import SpinWithText from "./SpinWithText";
+import { useTextCompare } from "./context/TextCompareContext";
 
 const TextInput = () => {
-  const [text1, setText1] = useState("");
-  const [text2, setText2] = useState("");
+  const { text1, text2, setText1, setText2 } = useTextCompare();
   const [isCompared, setIsCompared] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -40,7 +40,10 @@ const TextInput = () => {
             {text1.length} chars
           </div>
         </div>
-        <div className="small:rotate-90 lg:rotate-180" onClick={swapTexts}>
+        <div
+          className="small:rotate-90 lg:rotate-180 cursor-pointer"
+          onClick={swapTexts}
+        >
           <DoubleArrow />
         </div>
         <div className="w-full relative">

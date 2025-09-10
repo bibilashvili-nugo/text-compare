@@ -14,7 +14,7 @@ const MainSmall = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className=" small:flex justify-between items-center py-3 small:px-5 md:px-[30px] bg-secondary">
+      <div className=" small:flex justify-between items-center py-3 small:px-5 md:px-[30px] bg-[#132450]">
         <img
           src={Logo}
           alt="logo"
